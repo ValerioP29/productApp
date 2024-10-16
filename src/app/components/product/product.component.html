@@ -1,1 +1,20 @@
+<div *ngIf="product; else loading">
+  <h1>{{ product.title }}</h1>
+  <img [src]="product.thumbnail" alt="{{ product.title }}" width="300" />
+  <p>{{ product.description }}</p>
+  <p>
+    <strong>Price: </strong>\${{ product.price }} (-{{
+      product.discountPercentage
+    }}%)
+  </p>
+  <p><strong>Rating: </strong>{{ product.rating }}/5</p>
+  <p>
+    <strong>Stock: </strong
+    >{{ product.stock > 0 ? product.stock : "Out of stock" }}
+  </p>
+  <p><strong>Brand: </strong>{{ product.brand }}</p>
+</div>
 
+<ng-template #loading>
+  <p>Loading product...</p>
+</ng-template>
