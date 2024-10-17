@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <h1>I tuoi preferiti</h1>
+  <div *ngIf="favoriteProducts.length > 0; else emptyFavorites">
+    <div
+      *ngFor="let product of favoriteProducts"
+      class="card mb-3"
+      style="max-width: 540px"
+    >
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img
+            [src]="product.thumbnail"
+            class="img-fluid rounded-start"
+            alt="{{ product.title }}"
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.title }}</h5>
+            <p class="card-text">{{ product.description }}</p>
+            <p><strong>Price: </strong>${{ product.price }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #emptyFavorites>
+    <p>Non hai ancora salvato nessun prodotto tra i preferiti.</p>
+  </ng-template>
+</div>

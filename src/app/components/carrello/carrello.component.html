@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <h1>Il tuo carrello</h1>
+  <div *ngIf="cartProducts.length > 0; else emptyCart">
+    <div
+      *ngFor="let product of cartProducts"
+      class="card mb-3"
+      style="max-width: 540px"
+    >
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img
+            [src]="product.thumbnail"
+            class="img-fluid rounded-start"
+            alt="{{ product.title }}"
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.title }}</h5>
+            <p class="card-text">{{ product.description }}</p>
+            <p><strong>Price: </strong>${{ product.price }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #emptyCart>
+    <p>Il carrello è vuoto.</p>
+  </ng-template>
+</div>
